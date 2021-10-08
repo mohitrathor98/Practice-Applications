@@ -56,17 +56,19 @@ def search_by_title():
 
 
 
+choices = {
+    'a' : add_new_movie,
+    'b' : show_collection,
+    'c' : search_by_title
+}
+
 if __name__== "__main__":
     
     menu_choice = run_menu()
     while menu_choice:
         
-        if menu_choice == 'a':
-            add_new_movie()
-        elif menu_choice == 'b':
-            show_collection()
-        else:
-            search_by_title()
+        if menu_choice in choices:
+            choices[menu_choice]()
 
         menu_choice = run_menu()
 
