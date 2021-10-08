@@ -10,11 +10,14 @@ import json
 try:
     movie_collection = json.load(open('db.json'))
 except Exception as e:
-    print("Error while reading db.json file: " + e)
+    print("\nError while reading db.json file: " + e)
 
 
 def run_menu():
-    choice = input("\nCHOICES\n\na) Add movie\nb) Show collection\nc) Search movie by title\nq) quit\n\n")
+    print("\n======================================")
+    print("CHOICES")
+    print("======================================")
+    choice = input("\n\na) Add movie\nb) Show collection\nc) Search movie by title\nq) quit\n\n")
     
     if choice not in ['a', 'b', 'c']:
         return False
@@ -22,7 +25,7 @@ def run_menu():
 
 
 def add_new_movie():
-    movie_name = input("Movie Name: ")
+    movie_name = input("\nMovie Name: ")
     director_name = input("Director Name: ")
     release_year = input("Release Year: ")
     available_platform = input("Available Platform: ")
@@ -36,18 +39,21 @@ def add_new_movie():
         }
     )
 
+
 def show_collection():
-    print(movie_collection)
+    print("\n", json.dumps(movie_collection, indent=4))
+
 
 def search_by_title():
-    search_word = input("Title to search: ")
+    search_word = input("\nTitle to search: ")
 
     for movie in movie_collection:
-        if movie['movie_name'] == search_word:
-            print(movie)
+        if movie['movie_name'].lower() == search_word.lower():
+            print("\n", json.dumps(movie, indent=4))
             break
     else:
         print(f"\n{search_word} can't be found")
+
 
 
 if __name__== "__main__":
