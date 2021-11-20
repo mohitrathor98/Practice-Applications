@@ -8,7 +8,7 @@
 import json
 
 try:
-    movie_collection = json.load(open('db.json'))
+    movie_collection = json.load(open('Movie-Collection-Python/db.json'))
 except Exception as e:
     print("\nError while reading db.json file: " + e)
 
@@ -72,5 +72,5 @@ if __name__== "__main__":
 
         menu_choice = run_menu()
 
-    with open('db.json', 'w') as out:
+    with open('Movie-Collection-Python/db.json', 'w') as out:
         out.write(json.dumps(movie_collection))
