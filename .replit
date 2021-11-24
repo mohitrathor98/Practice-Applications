@@ -1,2 +1,2 @@
 language = "python3"
-run = "python3 Blackjack-Python/main.py"
+run = "python3 Guess-the-number/main.py"
