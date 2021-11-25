@@ -1,5 +1,13 @@
 {
   "files": {
+    "Coffee-Machine/data.py": [
+      {
+        "id": "ffdd0a2a-9a68-482e-8fa8-d3eee5343e07",
+        "line": 16,
+        "version": 1,
+        "index": 295
+      }
+    ],
     "Guess-the-number/main.py": [
       {
         "id": "3eb690d8-1f19-463e-a390-928b9d72db93",
