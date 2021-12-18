@@ -21,6 +21,8 @@ def reset_timer():
     canvas.itemconfig(timer_text, text=f"00:00")
     timer_label.config(text="Timer", fg=GREEN)
     check.config(text="")
+    global reps
+    reps = 0
     
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
@@ -31,14 +33,14 @@ def start_timer():
     # else short break
     if reps % 2 == 0:
         timer_label.config(text="Work!", fg=GREEN)
-        count_down(5)
+        count_down(WORK_MIN*60)
     else:
         if reps == 7:
             timer_label.config(text="Break", fg=RED)
             count_down(LONG_BREAK_MIN*60)
         else:
             timer_label.config(text="Break", fg=PINK)
-            count_down(2)
+            count_down(SHORT_BREAK_MIN*60)
     reps+=1
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
