@@ -4,7 +4,7 @@ import random
 
 def send_mail(message):
     my_email = "mohitdemo7@gmail.com"
-    password = "asdf1234()"
+    password = "demopassword"
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
 

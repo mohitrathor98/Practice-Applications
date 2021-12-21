@@ -1,16 +1,7 @@
-##################### Extra Hard Starting Project ######################
-
-# 1. Update the birthdays.csv
-
-# 2. Check if today matches a birthday in the birthdays.csv
-
-# 3. If step 2 is true, pick a random letter from letter templates and replace the [NAME] 
-# with the person's actual name from birthdays.csv
-
-# 4. Send the letter generated in step 3 to that person's email address.
 import pandas
 import datetime as dt
 import random
+import smtplib
 
 def generate_message(name):
     
@@ -21,8 +12,20 @@ def generate_message(name):
     
     
 def send_mail(record):
+    
     message = generate_message(record['name'])
-    print(message)
+    my_email = "mohitdemo7@gmail.com"
+    password = "demopassword"
+
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+
+        connection.starttls() 
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email, 
+            to_addrs=record['email'], 
+            msg=f"Subject:Happy Birthday {record['name']}\n\n{message}"
+        )
 
 data = pandas.read_csv("birthdays.csv")
 data_list = data.to_dict(orient='records')
