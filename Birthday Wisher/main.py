@@ -1,26 +1,13 @@
-import datetime as dt
-import smtplib
-import random
+##################### Extra Hard Starting Project ######################
 
-def send_mail(message):
-    my_email = "mohitdemo7@gmail.com"
-    password = "asdf1234()"
+# 1. Update the birthdays.csv
 
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+# 2. Check if today matches a birthday in the birthdays.csv
 
-        connection.starttls() 
-        connection.login(user=my_email, password=password)
-        connection.sendmail(
-            from_addr=my_email, 
-            to_addrs="mohitdemo7@yahoo.com", 
-            msg=f"Subject:Weekday Motivation\n\n{message}"
-        )
+# 3. If step 2 is true, pick a random letter from letter templates and replace the [NAME] with the person's actual name from birthdays.csv
+
+# 4. Send the letter generated in step 3 to that person's email address.
 
 
 
-with open("quotes.txt", "r") as file:
-    quotes = file.readlines()
 
-current_day = dt.datetime.now().weekday()
-if current_day < 5:
-    send_mail(random.choice(quotes))
