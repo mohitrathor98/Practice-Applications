@@ -51,7 +51,20 @@ def is_iss_overhead():
         
 
 def send_mail():
-    pass
+    my_email = "mohitdemo7@gmail.com"
+    password = "demopassword"
+
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+
+        connection.starttls() 
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email, 
+            to_addrs="mohitdemo7@yahoo.com", 
+            msg=f"Subject:ISS Overhead"+
+            "Hi,\n\nInternational space station is overhead."+
+            "GO and See."
+        )
 
 # check if it's night
 if check_dark_sky():
