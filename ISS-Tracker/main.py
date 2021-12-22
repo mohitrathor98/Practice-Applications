@@ -9,7 +9,7 @@ def get_iss_location():
     response = requests.get('http://api.open-notify.org/iss-now.json')
     response.raise_for_status()
     data = response.json()
-    return (int(data['iss_position']['latitude']), int(data['iss_position']['longitude']))
+    return (float(data['iss_position']['latitude']), float(data['iss_position']['longitude']))
 
 def get_sunrise_sunset():
     parameters = {
@@ -43,11 +43,10 @@ def is_iss_overhead():
         (iss_location[0]>(latitude-5)) and
         (iss_location[0]<(latitude+5)) and
         (iss_location[1]>(longitude-5)) and
-        (iss_location[1]>(longitude+5)) 
+        (iss_location[1]<(longitude+5)) 
         ):
-        send_mail()
-    else:
-        print("NOT OVERHEAD YET")
+        return True
+    return False
         
 
 def send_mail():
@@ -71,3 +70,5 @@ if check_dark_sky():
     # check if iss location is in vicinity [-5, 5] error in latitude
     if is_iss_overhead():
         send_mail()
+    else:
+        print("NOT OVERHEAD YET.")
