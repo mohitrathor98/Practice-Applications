@@ -60,7 +60,7 @@ def send_mail():
         connection.sendmail(
             from_addr=my_email, 
             to_addrs="mohitdemo7@yahoo.com", 
-            msg=f"Subject:ISS Overhead"+
+            msg=f"Subject:ISS Overhead\n\n"+
             "Hi,\n\nInternational space station is overhead."+
             "GO and See."
         )
