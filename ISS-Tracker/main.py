@@ -19,3 +19,12 @@ def get_sunrise_sunset():
     sunrise = response.json()['results']['sunrise'].split('T')[1].split(':')[0]
     sunset = response.json()['results']['sunset'].split('T')[1].split(':')[0]
     return (int(sunrise), int(sunset))
+
+def check_dark_sky():
+    return True
+
+# check if it's night
+if check_dark_sky():
+    # check if iss location is in vicinity [-5, 5] error in latitude
+    pass
+    # send mail that iss is overhead
