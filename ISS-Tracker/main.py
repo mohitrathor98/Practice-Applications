@@ -1,6 +1,7 @@
 import requests
 import datetime as dt
 import smtplib
+import time
 
 latitude = 27.2046
 longitude = 77.4977
@@ -66,9 +67,9 @@ def send_mail():
         )
 
 # check if it's night
-if check_dark_sky():
-    # check if iss location is in vicinity [-5, 5] error in latitude
-    if is_iss_overhead():
+# check if iss location is in vicinity [-5, 5] error in latitude
+while(True):
+
+    if check_dark_sky() and is_iss_overhead():
         send_mail()
-    else:
-        print("NOT OVERHEAD YET.")
+    time.sleep(60)
