@@ -34,7 +34,8 @@ input_form = """
 landing_body = header + """
 <body>
 <h1 >Guess the number between 0 and 9!!</h1>
-<img src=" " alt="GIF">
+<iframe src="https://giphy.com/embed/fDUOY00YvlhvtvJIVm" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<br>
 """ + input_form + validate_input + footer
 
 
