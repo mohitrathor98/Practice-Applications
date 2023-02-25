@@ -11,20 +11,9 @@ footer= """
 </html>
 """
 
-validate_input = """
-<script>
-    function validateForm() {
-        var field = document.forms["inputForm"]["user_choice"].value;
-        var regex = /^\d+$/;
-        if (!regex.test(field)) {
-            alert("Please provide integer values between 0 and 9!")
-        }
-    }
-</script>
-"""
 
 input_form = """
-<form name="inputForm" onsubmit="return validateForm()" action="/submit-form" method="post">
+<form name="inputForm" action="/submit-form" method="post">
     <label for="text-box">Enter you input here: </label>
     <input type="text" id="user_choice" name="choice-field">
     <input type="submit" value="Submit">
@@ -36,6 +25,23 @@ landing_body = header + """
 <h1 >Guess the number between 0 and 9!!</h1>
 <iframe src="https://giphy.com/embed/fDUOY00YvlhvtvJIVm" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <br>
-""" + input_form + validate_input + footer
+""" + input_form + footer
 
+low_value_body = header + """
+<h1 style="color: red">Value too low, try again!!!</h1>
+<iframe src="https://giphy.com/embed/iIppd7C1OmVNKwuHZB" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<br>
+""" + input_form + footer
+
+high_value_body = header + """
+<h1 style="color: violet">Too High, Go lower!!!</h1>
+<iframe src="https://giphy.com/embed/l4FB8UWQN6SqpPa2A" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<br>
+""" + input_form + footer
+
+success_body = header + """
+<h1 style="color: violet">Too High, Go lower!!!</h1>
+
+<br>
+""" + footer
 
