@@ -20,8 +20,7 @@ def submit_form():
     inp = request.form.get('choice-field')
     value = valid_input(inp)
     if value == -1:
-        # error page
-        return "Please enter values between 0 to 9"
+        return html_codes.error_body
     if value == actualNum:
         return html_codes.success_body
     elif value > actualNum:

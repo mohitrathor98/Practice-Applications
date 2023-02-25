@@ -45,7 +45,12 @@ success_body = header + """
 <br><br>
 <form name="restart-game" action="/game-restart" method="post">
   <input type="submit" value="Restart!!!">
-</form?
-<br>
+</form>
 """ + footer
+
+error_body = header + """
+<h1>Please enter values between 0 to 9</h1>
+<iframe src="https://giphy.com/embed/nR4L10XlJcSeQ" width="480" height="412" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<br>
+""" + input_form + footer
 
