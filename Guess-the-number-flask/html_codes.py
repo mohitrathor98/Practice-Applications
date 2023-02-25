@@ -40,8 +40,12 @@ high_value_body = header + """
 """ + input_form + footer
 
 success_body = header + """
-<h1 style="color: violet">Too High, Go lower!!!</h1>
-
+<h1 style="color: violet">Congrats!! You Found It.</h1>
+<iframe src="https://giphy.com/embed/2m1lj8p8v6JcWpREtL" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<br><br>
+<form name="restart-game" action="/game-restart" method="post">
+  <input type="submit" value="Restart!!!">
+</form?
 <br>
 """ + footer
 

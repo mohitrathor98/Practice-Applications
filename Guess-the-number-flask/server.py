@@ -5,23 +5,17 @@ import random
 app = Flask(__name__)
 
 actualNum = -1
-attempts = 0
 
 @app.route('/')
 def landing():
     global actualNum
-    global attempts
 
-    attempts = 0
     actualNum = random.randint(0, 9)
     return html_codes.landing_body
 
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
     global actualNum
-    global attempts
-
-    attempts += 1
     
     inp = request.form.get('choice-field')
     value = valid_input(inp)
@@ -29,11 +23,15 @@ def submit_form():
         # error page
         return "Please enter values between 0 to 9"
     if value == actualNum:
-        return "Found it in {} attempts!!".format(attempts)
+        return html_codes.success_body
     elif value > actualNum:
         return html_codes.high_value_body
     else:
         return html_codes.low_value_body
+    
+@app.route('/game-restart', methods=['POST'])
+def restart_game():
+    return landing()
 
 def valid_input(inp):
     if not inp.isdigit():
