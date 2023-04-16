@@ -23,7 +23,7 @@ def rootPage():
 
 @app.errorhandler(404)
 def pageNotFound(e):
-    return "Something went wrong! Need to provide /guess/<Name> in URL."
+    return "Something went wrong! Need to provide /guess/Name in URL."
 
 
 if __name__ == "__main__":
