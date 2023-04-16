@@ -15,5 +15,5 @@ class Post:
             self.getData()
         
         for post in self.data:
-            if post["id"] == id:
+            if int(post["id"]) == int(id):
                 return post

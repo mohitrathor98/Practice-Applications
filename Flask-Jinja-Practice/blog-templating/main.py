@@ -8,7 +8,7 @@ postObj = Post()
 def home():
     return render_template("index.html", allPosts=postObj.getData())
 
-@app.route("/dataById/<id>")
+@app.route("/post/<id>")
 def getDataById(id):
     return render_template("post.html", post=postObj.getPostById(id))
 
