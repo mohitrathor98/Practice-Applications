@@ -1,18 +1,15 @@
-FROM node 
-#from node image present in docker hub
-
-# setting up a working directory
+FROM node
 WORKDIR /app
 
-# copy the code to the container
-COPY . /app
+# Only copy package.json first
+# required for npn installation
+COPY package.json /app
 
-# Run Command when image is created
 RUN npm install
 
-# expose port 80 to outside environment
-# as our application is listening on port 80
-EXPOSE 80
+# Now when source code will change, it won't affect
+# the upper layers of image
+COPY . /app
 
-# Run command when container is created
+EXPOSE 80
 CMD ["node", "server.js"]
